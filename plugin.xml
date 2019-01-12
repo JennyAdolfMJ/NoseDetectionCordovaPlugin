@@ -35,6 +35,9 @@
         <source-file src="src/android/res/layout/activity_camera_origin.xml" target-dir="res/layout"/>
         <source-file src="src/android/res/layout/camera_connection_fragment.xml" target-dir="res/layout"/>
         <source-file src="src/android/res/layout/camera_connection_fragment_tracking.xml" target-dir="res/layout"/>
+        <source-file src="src/android/assets/allpet_custom_v11_android.pb" target-dir="assets/tf"/>
+        <source-file src="src/android/assets/allpet_labels_list.txt" target-dir="assets/tf"/>
+        <source-file src="src/android/assets/BUILD" target-dir="assets/tf"/>
     	<framework src="com.android.support:support-v4:27.1.1+" />
     	<framework src="org.tensorflow:tensorflow-android:+" />
 	</platform>
