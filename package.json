@@ -2,7 +2,12 @@
   "name": "nosedetectioncordovaplugin",
   "version": "1.0.0",
   "description": "Detect nose",
-  "main": "index.js",
+  "cordova": {
+    "id": "com.cloudoki.imagedetectionplugin",
+    "platforms": [
+      "android"
+    ]
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
