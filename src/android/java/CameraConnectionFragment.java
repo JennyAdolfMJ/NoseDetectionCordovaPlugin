@@ -227,7 +227,7 @@ public class CameraConnectionFragment extends Fragment {
 
   @Override
   public void onViewCreated(final View view, final Bundle savedInstanceState) {
-    textureView = (AutoFitTextureView) view.findViewById(R.id.texture);
+    textureView = (AutoFitTextureView) view.findViewById(MResource.getIdByName(view.getContext(), "id", "texture"));
   }
 
   @Override
@@ -288,9 +288,9 @@ public class CameraConnectionFragment extends Fragment {
     } catch (final CameraAccessException e) {
       LOGGER.e(e, "Exception!");
     } catch (final NullPointerException e) {
-      ErrorDialog.newInstance(getString(R.string.camera_error))
+      ErrorDialog.newInstance("This device doesn't support Camera2 API.")
           .show(getChildFragmentManager(), FRAGMENT_DIALOG);
-      throw new RuntimeException(getString(R.string.camera_error));
+      throw new RuntimeException("This device doesn't support Camera2 API.");
     }
 
     cameraConnectionCallback.onPreviewSizeChosen(previewSize, sensorOrientation);

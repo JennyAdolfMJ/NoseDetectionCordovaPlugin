@@ -72,7 +72,7 @@ public abstract class CameraActivity extends Activity
         super.onCreate(null);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        setContentView(R.layout.activity_camera_origin);
+        setContentView(MResource.getIdByName(this,"layout", "activity_camera_origin"));
 
         MultiBoxTracker.strPetName = null;
         MultiBoxTracker.strName = null;
@@ -85,12 +85,11 @@ public abstract class CameraActivity extends Activity
             requestPermission();
         }
 
-        imgView1 = (ImageView) findViewById(R.id.allpet_bottom_Img1);
+        imgView1 = (ImageView) findViewById(MResource.getIdByName(this,"id", "allpet_bottom_Img1"));
 
         imgView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                puppy_Sound_1(); // Temporarily Sound Remove
                 custom_alertDialog_Check();
             }
         });
@@ -385,7 +384,7 @@ public abstract class CameraActivity extends Activity
 
         getFragmentManager()
                 .beginTransaction()
-                .replace(R.id.container, fragment)
+                .replace(MResource.getIdByName(this, "id", "container"), fragment)
                 .commit();
     }
 
@@ -405,14 +404,14 @@ public abstract class CameraActivity extends Activity
     }
 
     public void requestRender() {
-        final OverlayView overlay = (OverlayView) findViewById(R.id.debug_overlay);
+        final OverlayView overlay = (OverlayView) findViewById(MResource.getIdByName(this,"id", "debug_overlay"));
         if (overlay != null) {
             overlay.postInvalidate();
         }
     }
 
     public void addCallback(final OverlayView.DrawCallback callback) {
-        final OverlayView overlay = (OverlayView) findViewById(R.id.debug_overlay);
+        final OverlayView overlay = (OverlayView) findViewById(MResource.getIdByName(this, "id", "debug_overlay"));
         if (overlay != null) {
             overlay.addCallback(callback);
         }
@@ -467,8 +466,7 @@ public abstract class CameraActivity extends Activity
             strPetName = "반려동물 " + MultiBoxTracker.getstrPetName();
             strName = "\n\n반려인 " + MultiBoxTracker.getStrName() + "님 반갑습니다.";
             strCall = "\n\n연락처 " + MultiBoxTracker.getStrCall();
-            Image = getResources().getDrawable(R.drawable.ic_allpet_launcher);
-            alertDialogBuilder.setIcon(Image).setCancelable(false);
+            alertDialogBuilder.setCancelable(false);
             alertDialogBuilder.setTitle("My Pet")
                     .setMessage(strPetName + strName + strCall);
 
@@ -502,8 +500,7 @@ public abstract class CameraActivity extends Activity
             strPetName = "";
             strCall = "\n\n회원정보를 등록해주세요.";
 
-            Image = getResources().getDrawable(R.drawable.ic_allpet_launcher);
-            alertDialogBuilder.setIcon(Image).setCancelable(false);
+            alertDialogBuilder.setCancelable(false);
             alertDialogBuilder.setTitle("My Pet")
                     .setMessage(strPetName + strName + strCall);
 
@@ -520,7 +517,7 @@ public abstract class CameraActivity extends Activity
 
     public void imageDialog(Context context) {
         AlertDialog.Builder imgDialogBuilder = new AlertDialog.Builder(context);
-        imgDialogBuilder.setIcon(R.drawable.ic_allpet_launcher).setCancelable(false);
+        imgDialogBuilder.setCancelable(false);
         imgDialogBuilder.setTitle("등록된 사진");
 
         LinearLayout linearLayout = new LinearLayout(context);
@@ -549,23 +546,6 @@ public abstract class CameraActivity extends Activity
             ));
             imgDialog.show();
         }
-    }
-
-    private void puppy_Sound_1() {
-        AudioAttributes audioAttributes = new AudioAttributes.Builder()
-                .setUsage(AudioAttributes.USAGE_NOTIFICATION)
-                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                .setFlags(AudioAttributes.FLAG_AUDIBILITY_ENFORCED)
-                .build();
-        final SoundPool soundPool =
-                new SoundPool.Builder().setAudioAttributes(audioAttributes).setMaxStreams(3).build();
-        soundPool.load(this, R.raw.puppy_sound_1, 0);
-        soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
-            @Override
-            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
-                soundPool.play(sampleId, .1f, .1f, 0, 0, 1.5f);
-            }
-        });
     }
 
     protected abstract void processImage();

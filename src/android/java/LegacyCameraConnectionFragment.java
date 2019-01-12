@@ -113,7 +113,7 @@ public class LegacyCameraConnectionFragment extends Fragment {
 
   @Override
   public void onViewCreated(final View view, final Bundle savedInstanceState) {
-    textureView = (AutoFitTextureView) view.findViewById(R.id.texture);
+    textureView = (AutoFitTextureView) view.findViewById(MResource.getIdByName(view.getContext(), "id", "texture"));
   }
 
   @Override

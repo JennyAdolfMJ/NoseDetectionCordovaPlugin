@@ -113,7 +113,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
         cropToFrameTransform = new Matrix();
         frameToCropTransform.invert(cropToFrameTransform);
 
-        trackingOverlay = (OverlayView) findViewById(R.id.tracking_overlay);
+        trackingOverlay = (OverlayView) findViewById(MResource.getIdByName(this, "id", "tracking_overlay"));
         trackingOverlay.addCallback(
                 new OverlayView.DrawCallback() {
                     @Override
@@ -361,7 +361,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
     @Override
     protected int getLayoutId() {
-        return R.layout.camera_connection_fragment_tracking;
+        return MResource.getIdByName(this, "layout", "camera_connection_fragment_tracking");
     }
 
     @Override

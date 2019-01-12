@@ -32,7 +32,6 @@ import java.util.Queue;
 
 import com.allpet.nosedetection.Classifier.Recognition;
 import com.allpet.nosedetection.DetectorActivity;
-import com.allpet.nosedetection.R;
 import com.allpet.nosedetection.env.BorderedText;
 import com.allpet.nosedetection.env.ImageUtils;
 import com.allpet.nosedetection.env.Logger;
@@ -290,7 +289,6 @@ public class MultiBoxTracker {
                 detection_Count++;
                 logger.i("인식중....%d", detection_Count);
                 if (detection_Count == 6) {
-                    puppy_Sound_1();
                     custom_alertDialog();
                     detectionCheck = true;
                     detection_Count = 0;
@@ -403,7 +401,7 @@ public class MultiBoxTracker {
 
     private void custom_alertDialog() {
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-        alertDialogBuilder.setIcon(R.drawable.ic_allpet_launcher).setCancelable(false);
+        alertDialogBuilder.setCancelable(false);
         alertDialogBuilder.setTitle("My Pet 등록").setMessage("아래 해당하는 정보를 등록해주세요.");
         LinearLayout layout = new LinearLayout(context);
         layout.setOrientation(LinearLayout.VERTICAL);
@@ -445,7 +443,7 @@ public class MultiBoxTracker {
                             dialog.dismiss();
                             String message = "해당 정보를 모두 입력해주세요.";
                             AlertDialog.Builder alertDialogBuilder_new = new AlertDialog.Builder(context);
-                            alertDialogBuilder_new.setIcon(R.drawable.ic_allpet_launcher).setCancelable(true);
+                            alertDialogBuilder_new.setCancelable(true);
                             alertDialogBuilder_new.setMessage(message);
 
                             final AlertDialog alertDialog_new = alertDialogBuilder_new.create();
@@ -473,7 +471,6 @@ public class MultiBoxTracker {
                                 @Override
                                 public void run() {
                                     progress_Spinner_Off();
-                                    puppy_Sound_2();
                                     custom_alertDialog_resultCheck(strPetName, strName, strCall);
                                 }
                             };
@@ -506,7 +503,7 @@ public class MultiBoxTracker {
 
     private void custom_alertDialog_resultCheck(String strPetName, String strName, String strCall) {
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-        alertDialogBuilder.setIcon(R.drawable.ic_allpet_launcher).setCancelable(false);
+        alertDialogBuilder.setCancelable(false);
         alertDialogBuilder.setTitle("등록결과")
                 .setMessage(strName + "님의" + "\n반려동물 " + strPetName + " 등록완료." +
                         "\n연락처 " + strCall);
@@ -540,7 +537,7 @@ public class MultiBoxTracker {
 
     public void imageDialog(Context context, AlertDialog alertDialog, String title) {
         AlertDialog.Builder imgDialogBuilder = new AlertDialog.Builder(context);
-        imgDialogBuilder.setIcon(R.drawable.ic_allpet_launcher).setCancelable(false);
+        imgDialogBuilder.setCancelable(false);
         imgDialogBuilder.setTitle(title);
 
         LinearLayout linearLayout = new LinearLayout(context);
@@ -593,43 +590,9 @@ public class MultiBoxTracker {
         }
     }
 
-    private void puppy_Sound_1() {
-        AudioAttributes audioAttributes = new AudioAttributes.Builder()
-                .setUsage(AudioAttributes.USAGE_NOTIFICATION)
-                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                .setFlags(AudioAttributes.FLAG_AUDIBILITY_ENFORCED)
-                .build();
-        final SoundPool soundPool =
-                new SoundPool.Builder().setAudioAttributes(audioAttributes).setMaxStreams(3).build();
-        soundPool.load(context, R.raw.puppy_sound_1, 0);
-        soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
-            @Override
-            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
-                soundPool.play(sampleId, .1f, .1f, 0, 0, 1.5f);
-            }
-        });
-    }
-
-    private void puppy_Sound_2() {
-        AudioAttributes audioAttributes = new AudioAttributes.Builder()
-                .setUsage(AudioAttributes.USAGE_NOTIFICATION)
-                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                .setFlags(AudioAttributes.FLAG_AUDIBILITY_ENFORCED)
-                .build();
-        final SoundPool soundPool =
-                new SoundPool.Builder().setAudioAttributes(audioAttributes).setMaxStreams(3).build();
-        soundPool.load(context, R.raw.puppy_sound_2, 0);
-        soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
-            @Override
-            public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
-                soundPool.play(sampleId, .1f, .1f, 0, 0, 1.5f);
-            }
-        });
-    }
-
     private void shortAlertDialog(String message) {
         AlertDialog.Builder alertDialogBuilder_new = new AlertDialog.Builder(context);
-        alertDialogBuilder_new.setIcon(R.drawable.ic_allpet_launcher).setCancelable(true);
+        alertDialogBuilder_new.setCancelable(true);
         alertDialogBuilder_new.setMessage(message);
 
         final AlertDialog alertDialog_new = alertDialogBuilder_new.create();

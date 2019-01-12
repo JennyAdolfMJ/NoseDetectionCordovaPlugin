@@ -22,6 +22,7 @@
         <source-file src="src/android/java/Classifier.java" target-dir="src/com/allpet/nosedetection"/>
         <source-file src="src/android/java/DetectorActivity.java" target-dir="src/com/allpet/nosedetection"/>
         <source-file src="src/android/java/LegacyCameraConnectionFragment.java" target-dir="src/com/allpet/nosedetection"/>
+        <source-file src="src/android/java/MResource.java" target-dir="src/com/allpet/nosedetection"/>
         <source-file src="src/android/java/NoseDetectionPlugin.java" target-dir="src/com/allpet/nosedetection"/>
         <source-file src="src/android/java/OverlayView.java" target-dir="src/com/allpet/nosedetection"/>
         <source-file src="src/android/java/TensorFlowObjectDetectionAPIModel.java" target-dir="src/com/allpet/nosedetection"/>
@@ -31,15 +32,10 @@
         <source-file src="src/android/java/env/Size.java" target-dir="src/com/allpet/nosedetection/env"/>
         <source-file src="src/android/java/tracking/MultiBoxTracker.java" target-dir="src/com/allpet/nosedetection/tracking"/>
         <source-file src="src/android/java/tracking/ObjectTracker.java" target-dir="src/com/allpet/nosedetection/tracking"/>
-        <source-file src="src/android/res/drawable/allpet_bottom1.png" target-dir="res/drawable"/>
-        <source-file src="src/android/res/drawable/ic_allpet_launcher.png" target-dir="res/drawable"/>
-        <source-file src="src/android/res/drawable/ic_allpet_launcher_2.png" target-dir="res/drawable"/>
         <source-file src="src/android/res/layout/activity_camera_origin.xml" target-dir="res/layout"/>
         <source-file src="src/android/res/layout/camera_connection_fragment.xml" target-dir="res/layout"/>
         <source-file src="src/android/res/layout/camera_connection_fragment_tracking.xml" target-dir="res/layout"/>
-        <source-file src="src/android/res/raw/puppy_sound_1.wav" target-dir="res/raw"/>
-        <source-file src="src/android/res/raw/puppy_sound_2.mp3" target-dir="res/raw"/>
-    	<framework src="com.android.support:support-v4:+" />
+    	<framework src="com.android.support:support-v4:27.1.1+" />
     	<framework src="org.tensorflow:tensorflow-android:+" />
 	</platform>
 </plugin>
