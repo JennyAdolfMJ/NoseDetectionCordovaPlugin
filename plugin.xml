@@ -11,10 +11,12 @@
                 <param name="android-package" value="com.allpet.nosedetection.NoseDetectionPlugin"/>
             </feature>
         </config-file>
-		<config-file target="AndroidManifest.xml" parent="/*">
+		<config-file target="AndroidManifest.xml" parent="/manifest">
     		<uses-permission android:name="android.permission.CAMERA" />
     		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     		<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <activity android:name=".DetectorActivity" android:screenOrientation="portrait" />
         </config-file>
         <source-file src="src/android/java/AutoFitTextureView.java" target-dir="src/com/allpet/nosedetection"/>
