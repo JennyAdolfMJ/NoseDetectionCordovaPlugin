@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.hardware.Camera;
@@ -57,6 +58,7 @@ public abstract class CameraActivity extends Activity
     private byte[][] yuvBytes = new byte[3][];
     private int[] rgbBytes = null;
     private int yRowStride;
+    protected byte[] resultImg = null;
 
     protected int previewWidth = 0;
     protected int previewHeight = 0;
@@ -84,15 +86,6 @@ public abstract class CameraActivity extends Activity
         } else {
             requestPermission();
         }
-
-        imgView1 = (ImageView) findViewById(MResource.getIdByName(this,"id", "allpet_bottom_Img1"));
-
-        imgView1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                custom_alertDialog_Check();
-            }
-        });
     }
 
     private byte[] lastPreviewFrame;
@@ -156,6 +149,13 @@ public abstract class CameraActivity extends Activity
                     }
                 };
         processImage();
+
+        if (resultImg != null) {
+            Intent intent = new Intent();
+            intent.putExtra("resultImg", resultImg);
+            setResult(Activity.RESULT_OK, intent);
+            finish();
+        }
     }
 
     /**

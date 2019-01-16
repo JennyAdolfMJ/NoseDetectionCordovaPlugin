@@ -16,6 +16,7 @@ import android.os.SystemClock;
 import android.util.Size;
 import android.util.TypedValue;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
@@ -283,6 +284,10 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                                 result.setLocation(location);
                                 mappedRecognitions.add(result);
 
+                                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                                croppedBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                                resultImg = stream.toByteArray();
+
                             } else if (result != null && location != null
                                     && (results.get(1).getTitle().contains("Noseprint")
                                     && results.get(0).getTitle().contains("Nose"))
@@ -334,12 +339,17 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
                                 cropToFrameTransform.mapRect(location);
                                 result.setLocation(location);
                                 mappedRecognitions.add(result);
-                            } else if (location != null && result.getConfidence() >= minimumConfidence) {
-                                canvas.drawRect(location, paint);
 
-                                cropToFrameTransform.mapRect(location);
-                                result.setLocation(location);
-                                mappedRecognitions.add(result);
+                                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                                croppedBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                                resultImg = stream.toByteArray();
+
+                            } else if (location != null && result.getConfidence() >= minimumConfidence) {
+                                //canvas.drawRect(location, paint);
+
+                                //cropToFrameTransform.mapRect(location);
+                                //result.setLocation(location);
+                                //mappedRecognitions.add(result);
                             }
                         }
                         tracker.trackResults(mappedRecognitions, luminanceCopy, currTimestamp);
