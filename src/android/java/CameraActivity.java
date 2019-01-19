@@ -149,13 +149,6 @@ public abstract class CameraActivity extends Activity
                     }
                 };
         processImage();
-
-        if (resultImg != null) {
-            Intent intent = new Intent();
-            intent.putExtra("resultImg", resultImg);
-            setResult(Activity.RESULT_OK, intent);
-            finish();
-        }
     }
 
     /**
@@ -215,6 +208,13 @@ public abstract class CameraActivity extends Activity
                     };
 
             processImage();
+
+            if (resultImg != null) {
+                Intent intent = new Intent();
+                intent.putExtra("resultImg", resultImg);
+                setResult(Activity.RESULT_OK, intent);
+                finish();
+            }
         } catch (final Exception e) {
             LOGGER.e(e, "Exception!");
             Trace.endSection();

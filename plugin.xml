@@ -17,7 +17,7 @@
     		<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <activity android:name=".DetectorActivity" android:screenOrientation="portrait" />
+            <activity android:name="com.allpet.nosedetection.DetectorActivity" android:screenOrientation="portrait" />
         </config-file>
         <source-file src="src/android/java/AutoFitTextureView.java" target-dir="src/com/allpet/nosedetection"/>
         <source-file src="src/android/java/CameraActivity.java" target-dir="src/com/allpet/nosedetection"/>
