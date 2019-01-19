@@ -22,27 +22,10 @@
     android:background="#000"
     tools:context="com.allpet.nosedetection.CameraActivity">
 
-    <LinearLayout
+    <com.allpet.nosedetection.GifView
+        android:id="@+id/progress_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#000"
-        android:orientation="vertical"
-        android:layout_gravity="center|bottom">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="80"
-            android:layout_gravity="center|bottom" >
-
-            <!--<ImageView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:layout_gravity="center|bottom"-->
-                <!--android:id="@+id/allpet_mid_Img1"-->
-                <!--android:src="@drawable/allpet_mid1"/>-->
-        </LinearLayout>
-
-    </LinearLayout>
+        android:layout_gravity="center" />
 
 </FrameLayout>

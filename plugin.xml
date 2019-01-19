@@ -24,6 +24,7 @@
         <source-file src="src/android/java/CameraConnectionFragment.java" target-dir="src/com/allpet/nosedetection"/>
         <source-file src="src/android/java/Classifier.java" target-dir="src/com/allpet/nosedetection"/>
         <source-file src="src/android/java/DetectorActivity.java" target-dir="src/com/allpet/nosedetection"/>
+        <source-file src="src/android/java/GifView.java" target-dir="src/com/allpet/nosedetection"/>
         <source-file src="src/android/java/LegacyCameraConnectionFragment.java" target-dir="src/com/allpet/nosedetection"/>
         <source-file src="src/android/java/MResource.java" target-dir="src/com/allpet/nosedetection"/>
         <source-file src="src/android/java/NoseDetectionPlugin.java" target-dir="src/com/allpet/nosedetection"/>
