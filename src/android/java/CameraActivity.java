@@ -216,13 +216,19 @@ public abstract class CameraActivity extends Activity
                 setResult(Activity.RESULT_OK, intent);
 
                 Context context = this;
-                runOnUiThread(new Runnable() {
+                new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        gifView.setGifResource(MResource.getIdByName(context, "drawable", "progress"));
-                        gifView.setVisibility(View.VISIBLE);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                gifView.setGifResource(MResource.getIdByName(context, "drawable", "progress"));
+                                gifView.setVisibility(View.VISIBLE);
+                            }
+                        });
+
                     }
-                });
+                }).start();
 
                 Thread.sleep(2000);
                 finish();
