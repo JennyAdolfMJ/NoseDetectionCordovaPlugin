@@ -1,6 +1,6 @@
 {
   "name": "nosedetectioncordovaplugin",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Detect nose",
   "cordova": {
     "id": "com.cloudoki.imagedetectionplugin",

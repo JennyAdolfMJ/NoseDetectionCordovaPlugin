@@ -214,8 +214,16 @@ public abstract class CameraActivity extends Activity
                 Intent intent = new Intent();
                 intent.putExtra("resultImg", resultImg);
                 setResult(Activity.RESULT_OK, intent);
-                gifView.setGifResource(MResource.getIdByName(this, "drawable", "progress"));
-                gifView.setVisibility(View.VISIBLE);
+
+                Context context = this;
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        gifView.setGifResource(MResource.getIdByName(context, "drawable", "progress"));
+                        gifView.setVisibility(View.VISIBLE);
+                    }
+                });
+
                 Thread.sleep(2000);
                 finish();
             }

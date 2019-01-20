@@ -36,6 +36,7 @@
         <source-file src="src/android/java/env/Size.java" target-dir="src/com/allpet/nosedetection/env"/>
         <source-file src="src/android/java/tracking/MultiBoxTracker.java" target-dir="src/com/allpet/nosedetection/tracking"/>
         <source-file src="src/android/java/tracking/ObjectTracker.java" target-dir="src/com/allpet/nosedetection/tracking"/>
+        <source-file src="src/android/res/drawable/progress.gif" target-dir="res/drawable"/>
         <source-file src="src/android/res/layout/activity_camera_origin.xml" target-dir="res/layout"/>
         <source-file src="src/android/res/layout/camera_connection_fragment.xml" target-dir="res/layout"/>
         <source-file src="src/android/res/layout/camera_connection_fragment_tracking.xml" target-dir="res/layout"/>
