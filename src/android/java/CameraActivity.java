@@ -86,7 +86,7 @@ public abstract class CameraActivity extends Activity
         }
 
         gifView = findViewById(MResource.getIdByName(this, "id", "progress_img"));
-        gifView.setVisibility(View.GONE);
+        gifView.setGifResource(MResource.getIdByName(this, "drawable", "progress"));
     }
 
     private byte[] lastPreviewFrame;
@@ -222,8 +222,7 @@ public abstract class CameraActivity extends Activity
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                gifView.setGifResource(MResource.getIdByName(context, "drawable", "progress"));
-                                gifView.setVisibility(View.VISIBLE);
+                                gifView.bringToFront();
                             }
                         });
 
